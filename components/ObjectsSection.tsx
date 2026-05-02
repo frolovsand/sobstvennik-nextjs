@@ -1,7 +1,11 @@
-import { objects } from '@/data/objects'
+import type { ObjectData } from '@/data/objects'
 import ObjectCard from './ObjectCard'
 
-export default function ObjectsSection() {
+interface Props {
+  objects: ObjectData[]
+}
+
+export default function ObjectsSection({ objects }: Props) {
   return (
     <section className="section" id="objects">
       <div className="container">
@@ -9,14 +13,14 @@ export default function ObjectsSection() {
           <div>
             <div className="eyebrow">Подборка — N°03</div>
             <h2 className="section-title">
-              Доступные <em>объекты</em>
+              Помещения свободны <em>— заезд возможен сегодня</em>
             </h2>
           </div>
-          <p className="section-sub">
+         {/*  <p className="section-sub">
             Несколько коммерческих помещений, которые можно арендовать или купить
             напрямую у собственника. Подборка обновляется по мере появления
             подходящих объектов.
-          </p>
+          </p>*/}
         </div>
         <div className="objects-grid">
           {objects.map((obj) => (

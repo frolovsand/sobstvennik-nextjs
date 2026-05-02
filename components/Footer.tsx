@@ -10,7 +10,7 @@ export default function Footer() {
               Собственник<span className="dot" />
             </Link>
             <p>
-              Коммерческие помещения для аренды и покупки напрямую от собственника.
+              Коммерческие помещения для аренды и продажи напрямую от собственника.
               Ограниченный пул отобранных объектов.
             </p>
           </div>
@@ -27,9 +27,7 @@ export default function Footer() {
             <h4>Форматы</h4>
             <ul>
               <li><Link href="/#objects">Аренда помещений</Link></li>
-              <li><Link href="/#objects">Покупка помещений</Link></li>
-              <li><Link href="/#contact">Подбор под задачу</Link></li>
-              <li><Link href="/#contact">Консультация</Link></li>
+              <li><Link href="/#objects">Продажа помещений</Link></li>
             </ul>
           </div>
           <div className="footer-col">
@@ -37,13 +35,13 @@ export default function Footer() {
             <ul>
               <li><a href="tel:+74950000000">+7 495 000 00 00</a></li>
               <li><a href="mailto:hello@sobstvennik.ru">hello@sobstvennik.ru</a></li>
-              <li><span>Москва, Санкт-Петербург</span></li>
+              <li><span>Москва и МО</span></li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
           <span>© 2026 Собственник. Коммерческая недвижимость напрямую от собственника.</span>
-          <span>Made with care · N°2026</span>
+         
         </div>
       </div>
     </footer>

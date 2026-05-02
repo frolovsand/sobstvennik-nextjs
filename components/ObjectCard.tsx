@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { ObjectData } from '@/data/objects'
 
 function badgeClass(badge: string) {
-  return /Покупка|Аренда \//i.test(badge) ? 'badge gold' : 'badge'
+  return /Продажа|Аренда \//i.test(badge) ? 'badge gold' : 'badge'
 }
 
 interface Props {
@@ -28,7 +28,7 @@ export default function ObjectCard({ object }: Props) {
           )}
           {object.sale && (
             <div className="price-block">
-              <div className="price-label">Покупка</div>
+              <div className="price-label">Стоимость</div>
               <div className="price-val">{object.sale}</div>
             </div>
           )}

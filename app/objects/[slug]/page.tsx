@@ -1,18 +1,19 @@
 import { notFound } from 'next/navigation'
 import type { Metadata } from 'next'
-import { objects } from '@/data/objects'
+import { getProperties, getPropertyBySlug } from '@/lib/api'
 import ObjectDetailPage from '@/components/ObjectDetailPage'
 
 interface Props {
   params: { slug: string }
 }
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const objects = await getProperties()
   return objects.map((obj) => ({ slug: obj.slug }))
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const obj = objects.find((o) => o.slug === params.slug)
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const obj = await getPropertyBySlug(params.slug)
   if (!obj) return { title: 'Объект не найден — Собственник' }
   return {
     title: `${obj.name} — Собственник`,
@@ -20,8 +21,8 @@ export function generateMetadata({ params }: Props): Metadata {
   }
 }
 
-export default function ObjectPage({ params }: Props) {
-  const obj = objects.find((o) => o.slug === params.slug)
+export default async function ObjectPage({ params }: Props) {
+  const obj = await getPropertyBySlug(params.slug)
   if (!obj) notFound()
   return <ObjectDetailPage object={obj} />
 }

@@ -2,19 +2,20 @@ import Hero from '@/components/Hero'
 import AboutSection from '@/components/AboutSection'
 import ObjectsSection from '@/components/ObjectsSection'
 import AdvantagesSection from '@/components/AdvantagesSection'
-import LocationAdvantagesSection from '@/components/LocationAdvantagesSection'
 import FeedbackForm from '@/components/FeedbackForm'
+import { getProperties } from '@/lib/api'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const objects = await getProperties()
+
   return (
     <main>
       <Hero />
       <AboutSection />
-      <ObjectsSection />
+      <ObjectsSection objects={objects} />
       <AdvantagesSection />
-      <LocationAdvantagesSection />
 
-      <section className="section" id="contact">
+<section className="section" id="contact">
         <div className="container">
           <div className="section-head">
             <div>
