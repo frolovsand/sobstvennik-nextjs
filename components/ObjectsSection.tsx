@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { ObjectData } from '@/data/objects'
 import ObjectCard from './ObjectCard'
 
@@ -11,16 +12,17 @@ export default function ObjectsSection({ objects }: Props) {
       <div className="container">
         <div className="section-head">
           <div>
-            <div className="eyebrow">Подборка — N°03</div>
+            <div className="eyebrow-gold">Каталог помещений</div>
             <h2 className="section-title">
-              Помещения свободны <em>— заезд возможен сегодня</em>
+              Актуальные помещения для вашего бизнеса
             </h2>
           </div>
-         {/*  <p className="section-sub">
-            Несколько коммерческих помещений, которые можно арендовать или купить
-            напрямую у собственника. Подборка обновляется по мере появления
-            подходящих объектов.
-          </p>*/}
+          <Link
+            href="/#objects"
+            className="section-cta btn btn-secondary btn-md btn-arrow"
+          >
+            Показать все помещения
+          </Link>
         </div>
         <div className="objects-grid">
           {objects.map((obj) => (

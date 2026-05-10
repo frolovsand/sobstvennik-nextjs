@@ -112,7 +112,7 @@ export default function ObjectDetailPage({ object: o }: Props) {
           <section className="detail-block">
             <div className="container detail-block-grid">
               <div>
-                <div className="detail-block-label">N°А — Об объекте</div>
+                <div className="detail-block-label">Об объекте</div>
                 <h2>{o.about.sectionTitle}</h2>
               </div>
               <div className="body">
@@ -133,7 +133,7 @@ export default function ObjectDetailPage({ object: o }: Props) {
           <section className="detail-block">
             <div className="container detail-block-grid">
               <div>
-                <div className="detail-block-label">N°Б — Условия сделки</div>
+                <div className="detail-block-label">Условия сделки</div>
                 <h2>{o.conditions.sectionTitle}</h2>
               </div>
               <div className="body">
@@ -154,7 +154,7 @@ export default function ObjectDetailPage({ object: o }: Props) {
           <section className="detail-block">
             <div className="container detail-block-grid">
               <div>
-                <div className="detail-block-label">N°В — Управление помещением</div>
+                <div className="detail-block-label">Управление помещением</div>
                 <h2>Эксплуатация</h2>
               </div>
               <div className="body">
@@ -172,7 +172,7 @@ export default function ObjectDetailPage({ object: o }: Props) {
           <section className="detail-block">
             <div className="container detail-block-grid">
               <div>
-                <div className="detail-block-label">N°Г — Условия использования</div>
+                <div className="detail-block-label">Условия использования</div>
                 <h2>Ограничения и требования</h2>
               </div>
               <div className="body">
@@ -190,7 +190,7 @@ export default function ObjectDetailPage({ object: o }: Props) {
           <section className="detail-block">
             <div className="container detail-block-grid">
               <div>
-                <div className="detail-block-label">N°Д — Локация</div>
+                <div className="detail-block-label">Локация</div>
                 <h2>Преимущества места</h2>
               </div>
               <div className="body">
@@ -211,7 +211,7 @@ export default function ObjectDetailPage({ object: o }: Props) {
         <div className="container">
           <div className="section-head">
             <div>
-              <div className="eyebrow">Запрос — N°Е</div>
+              <div className="eyebrow">Запрос</div>
               <h2 className="section-title">
                 Интересует <em>этот объект?</em>
               </h2>

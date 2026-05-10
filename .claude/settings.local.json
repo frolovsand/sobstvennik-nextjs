@@ -6,7 +6,10 @@
       "Bash(node -e \"let d=''; process.stdin.on\\('data',c=>d+=c\\); process.stdin.on\\('end',\\(\\)=>{const r=JSON.parse\\(d\\); console.log\\(JSON.stringify\\(r.data[0], null, 2\\)\\);}\\)\")",
       "Bash(curl -sv \"http://localhost:1337/api/properties?populate[sections][populate]=parameters&populate[mainImage]=true&populate[gallery]=true\")",
       "Bash(curl *)",
-      "Bash(dir \"c:\\\\Users\\\\MSI\\\\Desktop\\\\sobstvennik-nextjs\\\\public\")"
+      "Bash(dir \"c:\\\\Users\\\\MSI\\\\Desktop\\\\sobstvennik-nextjs\\\\public\")",
+      "Bash(npm run *)",
+      "PowerShell(New-Item -ItemType Directory -Path \"public\\\\images\" -Force)",
+      "PowerShell(npm run build)"
     ]
   }
 }
