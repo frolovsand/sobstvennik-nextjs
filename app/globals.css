@@ -1618,13 +1618,61 @@ h2.section-title em,
 
   /* Hero */
   .hero h1 { font-size: 40px; }
-  .hero-cards { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
-  .hero-card { padding: 0; }
+
+  /* USP cards — each becomes its own glass mini-card,
+     icon left, value + label stacked on the right. */
+  .hero-cards {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .hero-card,
   .hero-card:nth-child(n+2) {
-    border-left: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    padding-left: 0;
-    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    column-gap: 16px;
+    row-gap: 4px;
+    align-items: center;
+    padding: 18px 20px;
+    background: rgba(15, 15, 15, 0.7);
+    border: 1px solid rgba(209, 135, 73, 0.18);
+    border-top: 1px solid rgba(209, 135, 73, 0.18);
+    border-left: 1px solid rgba(209, 135, 73, 0.18);
+    border-radius: 14px;
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+  .hero-card-icon {
+    grid-row: 1 / span 2;
+    align-self: center;
+    width: 44px;
+    height: 44px;
+    margin: 0;
+    border: 1px solid var(--gold-line);
+    border-radius: 12px;
+    background: rgba(209, 135, 73, 0.05);
+  }
+  .hero-card-icon svg { width: 22px; height: 22px; }
+  .hero-card-value {
+    grid-column: 2;
+    font-size: 26px;
+    line-height: 1;
+  }
+  .hero-card-value-text {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+  .hero-card-label {
+    grid-column: 2;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.4;
   }
 
   /* Single-column grids */
@@ -1641,16 +1689,16 @@ h2.section-title em,
   .header-burger { display: none; }
   .header .btn-primary { padding: 0 16px; font-size: 13px; }
 
-  /* Hero — stronger background darkening for legibility */
+  /* Hero — skyline stays visible, bottom is darkened for CTA legibility */
   .hero::before {
     background-position: center center;
-    filter: brightness(0.28) saturate(0.85) sepia(0.15) blur(2px);
+    filter: brightness(0.55) saturate(0.95) sepia(0.12) blur(1.5px);
   }
   .hero::after {
     background:
-      radial-gradient(ellipse 130% 95% at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.55) 100%),
-      radial-gradient(500px 400px at 50% 80%, rgba(209, 135, 73, 0.12), transparent 65%),
-      linear-gradient(180deg, rgba(10, 10, 11, 0.65) 0%, rgba(10, 10, 11, 0.5) 50%, rgba(10, 10, 11, 0.85) 100%);
+      radial-gradient(ellipse 130% 95% at 50% 50%, transparent 60%, rgba(0, 0, 0, 0.4) 100%),
+      radial-gradient(500px 400px at 50% 80%, rgba(209, 135, 73, 0.16), transparent 65%),
+      linear-gradient(180deg, rgba(10, 10, 11, 0.32) 0%, rgba(10, 10, 11, 0.2) 45%, rgba(10, 10, 11, 0.7) 100%);
   }
   .hero-grid { padding: 60px 0 48px; gap: 36px; }
   .hero h1 { font-size: 36px; }
