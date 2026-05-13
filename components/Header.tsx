@@ -13,7 +13,6 @@ export default function Header() {
 
         <nav className="nav" aria-label="Главная навигация">
           <Link href="/#objects">Объекты</Link>
-          <Link href="/#about">О нас</Link>
           <Link href="/#advantages">Преимущества</Link>
           <Link href="/#contact">Контакты</Link>
         </nav>

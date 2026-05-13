@@ -40,7 +40,7 @@ export default function ObjectCard({ object }: Props) {
           <div className="object-prices">
             {object.rent && (
               <div className="price-block">
-                <div className="price-label">Аренда</div>
+                <div className="price-label">Стоимость</div>
                 <div className="price-val">{object.rent}</div>
               </div>
             )}

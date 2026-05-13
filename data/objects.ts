@@ -3,6 +3,12 @@ export interface Spec {
   value: string
 }
 
+export interface GalleryItem {
+  url: string
+  mime: string
+  alt?: string
+}
+
 export interface SectionParameter {
   label?: string
   value?: string
@@ -27,6 +33,8 @@ export interface ObjectData {
   rent: string | null
   sale: string | null
   photos: string[]
+  gallery?: GalleryItem[]
+  presentationUrl?: string | null
   about: {
     sectionTitle: string
     description: string

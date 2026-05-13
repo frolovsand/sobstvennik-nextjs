@@ -29,7 +29,7 @@ export default async function HomePage() {
                     </svg>
                   </span>
                   <div className="contact-text">
-                    <a className="contact-line" href="tel:+74950000000">+7 495 000 00 00</a>
+                    <a className="contact-line" href="tel:+79099025060">+7 909 902 50 60</a>
                     <div className="contact-sub">Позвоните мне</div>
                   </div>
                 </li>
@@ -40,7 +40,7 @@ export default async function HomePage() {
                     </svg>
                   </span>
                   <div className="contact-text">
-                    <a className="contact-line" href="https://wa.me/74950000000">+7 495 000 00 00</a>
+                    <a className="contact-line" href="https://wa.me/79099025060">+7 909 902 50 60</a>
                     <div className="contact-sub">WhatsApp / Telegram</div>
                   </div>
                 </li>
@@ -52,7 +52,7 @@ export default async function HomePage() {
                     </svg>
                   </span>
                   <div className="contact-text">
-                    <a className="contact-line" href="mailto:info@sobstvennik.ru">info@sobstvennik.ru</a>
+                    <a className="contact-line" href="mailto:dav@mezn.ru">dav@mezn.ru</a>
                     <div className="contact-sub">Email</div>
                   </div>
                 </li>
@@ -64,7 +64,7 @@ export default async function HomePage() {
                     </svg>
                   </span>
                   <div className="contact-text">
-                    <span className="contact-line">Пн – Пт, 10:00 – 20:00 (МСК)</span>
+                    <span className="contact-line">Пн – Пт, 10:00 – 17:00 (МСК)</span>
                     <div className="contact-sub">График работы</div>
                   </div>
                 </li>

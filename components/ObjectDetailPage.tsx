@@ -67,7 +67,10 @@ export default function ObjectDetailPage({ object: o }: Props) {
       <section className="detail-hero">
         <div className="container">
           <div className="detail-hero-grid">
-            <ObjectGallery photos={o.photos} name={o.name} />
+            <ObjectGallery
+              items={o.gallery ?? o.photos.map((url) => ({ url, mime: 'image/jpeg' }))}
+              name={o.name}
+            />
 
             <div className="detail-info">
               <span className="obj-id">Объект N°{o.n} / 2026</span>
@@ -77,14 +80,14 @@ export default function ObjectDetailPage({ object: o }: Props) {
               <div className="detail-prices">
                 {o.rent && (
                   <div className="detail-price-row">
-                    <span className="lbl">Аренда</span>
+                    <span className="lbl">Стоимость</span>
                     <span className="val">{o.rent}</span>
                   </div>
                 )}
                 {o.sale && (
-                  <div className="detail-price-sale">
-                    <div className="detail-price-sale-lbl">Стоимость</div>
-                    <div className="detail-price-sale-val">{o.sale}</div>
+                  <div className="detail-price-row">
+                    <span className="lbl">Стоимость</span>
+                    <span className="val">{o.sale}</span>
                   </div>
                 )}
               </div>
@@ -92,9 +95,36 @@ export default function ObjectDetailPage({ object: o }: Props) {
                 <a href="#detail-form" className="btn btn-primary btn-arrow">
                   Записаться на просмотр
                 </a>
-                <a href="#detail-form" className="btn btn-ghost">
-                  Задать вопрос
-                </a>
+                {o.presentationUrl ? (
+                  <a
+                    href={o.presentationUrl}
+                    download
+                    className="btn btn-dl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Скачать презентацию
+                  </a>
+                ) : (
+                  <a href="#detail-form" className="btn btn-ghost">
+                    Задать вопрос
+                  </a>
+                )}
               </div>
             </div>
           </div>

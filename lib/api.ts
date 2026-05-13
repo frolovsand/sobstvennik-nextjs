@@ -1,13 +1,13 @@
-import { ObjectData, Section, Spec, objects as fallbackObjects } from '@/data/objects'
+import { ObjectData, GalleryItem, Section, Spec, objects as fallbackObjects } from '@/data/objects'
 
 const STRAPI_URL = process.env.NEXT_PUBLIC_STRAPI_URL || 'http://localhost:1337'
 
 // populate=* достаточно для списка (mainImage + gallery без вложенных компонентов)
 const POPULATE_LIST = 'populate=*'
 
-// Для детальной страницы нужны parameters внутри sections
+// Для детальной страницы нужны parameters внутри sections + файл презентации
 const POPULATE_DETAIL =
-  'populate[mainImage]=true&populate[gallery]=true&populate[sections][populate]=parameters'
+  'populate[mainImage]=true&populate[gallery]=true&populate[sections][populate]=parameters&populate[presentation]=true'
 
 function strapiImageUrl(url: string): string {
   if (!url) return ''
@@ -20,6 +20,9 @@ function strapiImageUrl(url: string): string {
 interface StrapiV5Image {
   id: number
   url: string
+  mime?: string
+  name?: string
+  alternativeText?: string | null
 }
 
 interface StrapiV5Parameter {
@@ -51,6 +54,7 @@ interface StrapiV5Property {
   mainImage?: StrapiV5Image | null
   gallery?: StrapiV5Image[]
   sections?: StrapiV5Section[]
+  presentation?: StrapiV5Image | null
 }
 
 interface StrapiV5Response {
@@ -99,6 +103,27 @@ function sectionToItems(section: Section | undefined): string[] {
     .filter(Boolean)
 }
 
+function buildGallery(item: StrapiV5Property): GalleryItem[] {
+  const result: GalleryItem[] = []
+  if (item.mainImage?.url) {
+    result.push({
+      url: strapiImageUrl(item.mainImage.url),
+      mime: item.mainImage.mime ?? 'image/jpeg',
+      alt: item.mainImage.alternativeText ?? undefined,
+    })
+  }
+  for (const media of item.gallery ?? []) {
+    if (media.url) {
+      result.push({
+        url: strapiImageUrl(media.url),
+        mime: media.mime ?? 'image/jpeg',
+        alt: media.alternativeText ?? undefined,
+      })
+    }
+  }
+  return result
+}
+
 function mapStrapiV5Property(item: StrapiV5Property, idx: number): ObjectData {
   const photos: string[] = []
   if (item.mainImage?.url) photos.push(strapiImageUrl(item.mainImage.url))
@@ -119,6 +144,10 @@ function mapStrapiV5Property(item: StrapiV5Property, idx: number): ObjectData {
     rent: item.rentPrice ?? null,
     sale: item.salePrice ?? null,
     photos,
+    gallery: buildGallery(item),
+    presentationUrl: item.presentation?.url
+      ? strapiImageUrl(item.presentation.url)
+      : null,
     about: {
       sectionTitle: s0?.title ?? item.title ?? '',
       description: s0?.description ?? '',
