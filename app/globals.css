@@ -1503,42 +1503,6 @@ a.contact-line:hover { color: var(--gold); }
 }
 .lightbox-nav button:hover { color: var(--gold); border-color: var(--gold-line); }
 
-/* ─── SUBSCRIPTION ─── */
-.sub-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-.sub-desc {
-  font-size: 17px;
-  color: var(--text-muted);
-  line-height: 1.6;
-  margin-top: 24px;
-  margin-bottom: 40px;
-  max-width: 480px;
-}
-.sub-benefits {
-  list-style: none;
-  border-top: 1px solid var(--border);
-}
-.sub-benefits li {
-  display: flex;
-  align-items: baseline;
-  gap: 16px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border);
-  font-size: 15px;
-  color: var(--text-muted);
-}
-.sub-benefit-num {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  color: var(--gold);
-  flex-shrink: 0;
-}
-
 /* ─── GOLD GRADIENT TEXT ───
    Use background-clip on text for premium metallic look.
    Applied to large headline-grade gold accents.
@@ -1593,7 +1557,6 @@ h2.section-title em,
 
   /* Section grids → single column */
   .about,
-  .sub-layout,
   .loc-grid,
   .contact,
   .detail-hero-grid,
